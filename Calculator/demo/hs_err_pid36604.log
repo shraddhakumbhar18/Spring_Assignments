@@ -1,0 +1,198 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (malloc) failed to allocate 583536 bytes for Chunk::new
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   In 32 bit mode, the process size limit was hit
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Use 64 bit Java on a 64 bit OS
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (allocation.cpp:390), pid=36604, tid=0x0000000000009930
+#
+# JRE version: Java(TM) SE Runtime Environment (8.0_121-b13) (build 1.8.0_121-b13)
+# Java VM: Java HotSpot(TM) 64-Bit Server VM (25.121-b13 mixed mode windows-amd64 compressed oops)
+# Failed to write core dump. Minidumps are not enabled by default on client versions of Windows
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x0000000018001800):  JavaThread "C2 CompilerThread0" daemon [_thread_in_native, id=39216, stack(0x0000000019660000,0x0000000019760000)]
+
+Stack: [0x0000000019660000,0x0000000019760000]
+[error occurred during error reporting (printing stack bounds), id 0xc0000005]
+
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+
+
+Current CompileTask:
+C2:   2717  689 %     4       org.springframework.asm.ClassReader::readCode @ 1473 (3579 bytes)
+
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x0000000018049000 JavaThread "Service Thread" daemon [_thread_blocked, id=32080, stack(0x0000000019960000,0x0000000019a60000)]
+  0x0000000018009000 JavaThread "C1 CompilerThread2" daemon [_thread_blocked, id=30772, stack(0x0000000019860000,0x0000000019960000)]
+  0x0000000018004000 JavaThread "C2 CompilerThread1" daemon [_thread_in_native, id=39812, stack(0x0000000019760000,0x0000000019860000)]
+=>0x0000000018001800 JavaThread "C2 CompilerThread0" daemon [_thread_in_native, id=39216, stack(0x0000000019660000,0x0000000019760000)]
+  0x0000000017ffc800 JavaThread "Attach Listener" daemon [_thread_blocked, id=39400, stack(0x0000000019560000,0x0000000019660000)]
+  0x0000000017ffb000 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=36432, stack(0x0000000019460000,0x0000000019560000)]
+  0x00000000033db000 JavaThread "Finalizer" daemon [_thread_blocked, id=31000, stack(0x0000000019270000,0x0000000019370000)]
+  0x00000000033d2000 JavaThread "Reference Handler" daemon [_thread_blocked, id=27996, stack(0x0000000019170000,0x0000000019270000)]
+  0x00000000031be800 JavaThread "main" [_thread_in_Java, id=39564, stack(0x00000000031e0000,0x00000000032e0000)]
+
+Other Threads:
+  0x0000000017fc6800 VMThread [stack: 0x0000000019070000,0x0000000019170000] [id=16576]
+  0x0000000019a80800 WatcherThread [stack: 0x0000000019e60000,0x0000000019f60000] [id=32968]
+
+VM state:not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+Heap:
+ PSYoungGen      total 38400K, used 25385K [0x00000000d5580000, 0x00000000d8000000, 0x0000000100000000)
+  eden space 33280K, 76% used [0x00000000d5580000,0x00000000d6e4a5b0,0x00000000d7600000)
+  from space 5120K, 0% used [0x00000000d7b00000,0x00000000d7b00000,0x00000000d8000000)
+  to   space 5120K, 0% used [0x00000000d7600000,0x00000000d7600000,0x00000000d7b00000)
+ ParOldGen       total 87552K, used 0K [0x0000000080000000, 0x0000000085580000, 0x00000000d5580000)
+  object space 87552K, 0% used [0x0000000080000000,0x0000000080000000,0x0000000085580000)
+ Metaspace       used 9503K, capacity 9582K, committed 9856K, reserved 1058816K
+  class space    used 1066K, capacity 1105K, committed 1152K, reserved 1048576K
+
+Card table byte_map: [0x00000000127a0000,0x0000000012bb0000] byte_map_base: 0x00000000123a0000
+
+Marking Bits: (ParMarkBitMap*) 0x0000000067b8b6d0
+ Begin Bits: [0x0000000013260000, 0x0000000015260000)
+ End Bits:   [0x0000000015260000, 0x0000000017260000)
+
+Polling page: 0x00000000030e0000
+
+CodeCache: size=245760Kb used=3406Kb max_used=3406Kb free=242353Kb
+ bounds [0x00000000033e0000, 0x0000000003740000, 0x00000000123e0000]
+ total_blobs=1039 nmethods=735 adapters=216
+ compilation: enabled
+
+Compilation events (10 events):
+Event: 2.704 Thread 0x0000000018009000 nmethod 730 0x0000000003731250 code [0x00000000037313e0, 0x0000000003731ad8]
+Event: 2.706 Thread 0x0000000018009000  731       3       java.util.LinkedHashMap::get (33 bytes)
+Event: 2.706 Thread 0x0000000018009000 nmethod 731 0x0000000003731e10 code [0x0000000003731fa0, 0x00000000037324a8]
+Event: 2.706 Thread 0x0000000018009000  732       3       java.net.URL::openConnection (9 bytes)
+Event: 2.706 Thread 0x0000000018009000 nmethod 732 0x0000000003732650 code [0x00000000037327c0, 0x00000000037329e8]
+Event: 2.706 Thread 0x0000000018009000  733       3       java.net.URLConnection::<init> (44 bytes)
+Event: 2.707 Thread 0x0000000018009000 nmethod 733 0x0000000003732a90 code [0x0000000003732c00, 0x0000000003732e10]
+Event: 2.707 Thread 0x0000000018009000  734       3       java.nio.charset.Charset::atBugLevel (44 bytes)
+Event: 2.707 Thread 0x0000000018009000 nmethod 734 0x0000000003732ed0 code [0x0000000003733080, 0x0000000003733618]
+Event: 2.708 Thread 0x0000000018004000  735       4       org.springframework.asm.Type::getReturnType (49 bytes)
+
+GC Heap History (0 events):
+No events
+
+Deoptimization events (4 events):
+Event: 1.199 Thread 0x00000000031be800 Uncommon trap: reason=unstable_if action=reinterpret pc=0x000000000353b7d0 method=java.lang.String.indexOf([CII[CIII)I @ 3
+Event: 2.002 Thread 0x00000000031be800 Uncommon trap: reason=unstable_if action=reinterpret pc=0x000000000358c1fc method=java.lang.String.indexOf([CII[CIII)I @ 134
+Event: 2.521 Thread 0x00000000031be800 Uncommon trap: reason=unstable_if action=reinterpret pc=0x000000000367a2a0 method=java.io.WinNTFileSystem.normalize(Ljava/lang/String;)Ljava/lang/String; @ 128
+Event: 2.651 Thread 0x00000000031be800 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00000000036d1c70 method=org.springframework.asm.ClassReader.readUTF8(I[C)Ljava/lang/String; @ 11
+
+Internal exceptions (7 events):
+Event: 0.310 Thread 0x00000000031be800 Exception <a 'java/lang/NoSuchMethodError': Method sun.misc.Unsafe.defineClass(Ljava/lang/String;[BII)Ljava/lang/Class; name or signature does not match> (0x00000000d5587ca8) thrown at [C:\re\workspace\8-2-build-windows-amd64-cygwin\jdk8u121\8372\hotspot\
+Event: 0.311 Thread 0x00000000031be800 Exception <a 'java/lang/NoSuchMethodError': Method sun.misc.Unsafe.prefetchRead(Ljava/lang/Object;J)V name or signature does not match> (0x00000000d5587f90) thrown at [C:\re\workspace\8-2-build-windows-amd64-cygwin\jdk8u121\8372\hotspot\src\share\vm\prims
+Event: 0.856 Thread 0x00000000031be800 Exception <a 'java/security/PrivilegedActionException'> (0x00000000d58f24f8) thrown at [C:\re\workspace\8-2-build-windows-amd64-cygwin\jdk8u121\8372\hotspot\src\share\vm\prims\jvm.cpp, line 1390]
+Event: 0.856 Thread 0x00000000031be800 Exception <a 'java/security/PrivilegedActionException'> (0x00000000d58f2708) thrown at [C:\re\workspace\8-2-build-windows-amd64-cygwin\jdk8u121\8372\hotspot\src\share\vm\prims\jvm.cpp, line 1390]
+Event: 0.857 Thread 0x00000000031be800 Exception <a 'java/security/PrivilegedActionException'> (0x00000000d58f6618) thrown at [C:\re\workspace\8-2-build-windows-amd64-cygwin\jdk8u121\8372\hotspot\src\share\vm\prims\jvm.cpp, line 1390]
+Event: 0.857 Thread 0x00000000031be800 Exception <a 'java/security/PrivilegedActionException'> (0x00000000d58f6828) thrown at [C:\re\workspace\8-2-build-windows-amd64-cygwin\jdk8u121\8372\hotspot\src\share\vm\prims\jvm.cpp, line 1390]
+Event: 1.138 Thread 0x00000000031be800 Exception <a 'java/lang/NoClassDefFoundError': org/apache/log4j/Priority> (0x00000000d5990698) thrown at [C:\re\workspace\8-2-build-windows-amd64-cygwin\jdk8u121\8372\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 199]
+
+Events (10 events):
+Event: 2.617 loading class org/springframework/beans/factory/config/ConstructorArgumentValues done
+Event: 2.618 loading class org/springframework/beans/MutablePropertyValues
+Event: 2.618 loading class org/springframework/beans/MutablePropertyValues done
+Event: 2.626 loading class java/lang/Long$LongCache
+Event: 2.627 loading class java/lang/Long$LongCache done
+Event: 2.651 Thread 0x00000000031be800 Uncommon trap: trap_request=0xffffff65 fr.pc=0x00000000036d1c70
+Event: 2.651 Thread 0x00000000031be800 DEOPT PACKING pc=0x00000000036d1c70 sp=0x00000000032de740
+Event: 2.651 Thread 0x00000000031be800 DEOPT UNPACKING pc=0x000000000342556a sp=0x00000000032de728 mode 2
+Event: 2.700 loading class org/springframework/asm/Opcodes
+Event: 2.700 loading class org/springframework/asm/Opcodes done
+
+
+Dynamic libraries:
+0x00007ff658c70000 - 0x00007ff658ca7000 	C:\Program Files\Java\jdk1.8.0_121\bin\java.exe
+0x00007ffb131e0000 - 0x00007ffb133c1000 	C:\WINDOWS\SYSTEM32\ntdll.dll
+0x00007ffb12c90000 - 0x00007ffb12d42000 	C:\WINDOWS\System32\KERNEL32.DLL
+0x00007ffb0f610000 - 0x00007ffb0f883000 	C:\WINDOWS\System32\KERNELBASE.dll
+0x00007ffb10a30000 - 0x00007ffb10ad1000 	C:\WINDOWS\System32\ADVAPI32.dll
+0x00007ffb12be0000 - 0x00007ffb12c7e000 	C:\WINDOWS\System32\msvcrt.dll
+0x00007ffb12510000 - 0x00007ffb1256b000 	C:\WINDOWS\System32\sechost.dll
+0x00007ffb108a0000 - 0x00007ffb109c4000 	C:\WINDOWS\System32\RPCRT4.dll
+0x00007ffb13020000 - 0x00007ffb131b0000 	C:\WINDOWS\System32\USER32.dll
+0x00007ffb0fd70000 - 0x00007ffb0fd90000 	C:\WINDOWS\System32\win32u.dll
+0x00007ffb10870000 - 0x00007ffb10898000 	C:\WINDOWS\System32\GDI32.dll
+0x00007ffb0f890000 - 0x00007ffb0fa22000 	C:\WINDOWS\System32\gdi32full.dll
+0x00007ffb0fc20000 - 0x00007ffb0fcbf000 	C:\WINDOWS\System32\msvcp_win.dll
+0x00007ffb104a0000 - 0x00007ffb1059a000 	C:\WINDOWS\System32\ucrtbase.dll
+0x00007ffb0d730000 - 0x00007ffb0d999000 	C:\WINDOWS\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.17134.376_none_fb439a3730647da2\COMCTL32.dll
+0x00007ffb121e0000 - 0x00007ffb12503000 	C:\WINDOWS\System32\combase.dll
+0x00007ffb105f0000 - 0x00007ffb1066a000 	C:\WINDOWS\System32\bcryptPrimitives.dll
+0x00007ffb12bb0000 - 0x00007ffb12bdd000 	C:\WINDOWS\System32\IMM32.DLL
+0x00007ffb0f390000 - 0x00007ffb0f3ed000 	C:\Program Files\Citrix\System32\MfApHook64.dll
+0x00007ffb0ece0000 - 0x00007ffb0ed0b000 	C:\Program Files\Citrix\ICAService\CtxDodHook64.dll
+0x00007ffb0f2b0000 - 0x00007ffb0f2e2000 	C:\Program Files\Citrix\ICAService\picaFullScreenHookX64.dll
+0x00007ffb0ec90000 - 0x00007ffb0ecde000 	C:\Program Files\Citrix\ICAService\ShellHook64.dll
+0x00007ffb10d10000 - 0x00007ffb1214f000 	C:\WINDOWS\System32\SHELL32.dll
+0x00007ffb105a0000 - 0x00007ffb105e9000 	C:\WINDOWS\System32\cfgmgr32.dll
+0x00007ffb10c60000 - 0x00007ffb10d09000 	C:\WINDOWS\System32\shcore.dll
+0x00007ffb0fd90000 - 0x00007ffb1049d000 	C:\WINDOWS\System32\windows.storage.dll
+0x00007ffb10670000 - 0x00007ffb106c1000 	C:\WINDOWS\System32\shlwapi.dll
+0x00007ffb0f510000 - 0x00007ffb0f521000 	C:\WINDOWS\System32\kernel.appcore.dll
+0x00007ffb0f590000 - 0x00007ffb0f5af000 	C:\WINDOWS\System32\profapi.dll
+0x00007ffb0f540000 - 0x00007ffb0f58c000 	C:\WINDOWS\System32\powrprof.dll
+0x00007ffb0f530000 - 0x00007ffb0f53a000 	C:\WINDOWS\System32\FLTLIB.DLL
+0x00007ffb0eaf0000 - 0x00007ffb0ec6e000 	C:\Program Files\Citrix\ICAService\SCardHook64.dll
+0x00007ffb0eac0000 - 0x00007ffb0eaea000 	C:\Program Files\Citrix\ICAService\cxinjime64.dll
+0x00007ffb0ea00000 - 0x00007ffb0ea48000 	C:\Program Files\Citrix\ICAService\PicaWtsHook64.dll
+0x0000000067c10000 - 0x0000000067ce2000 	C:\Program Files\Java\jdk1.8.0_121\jre\bin\msvcr100.dll
+0x0000000067370000 - 0x0000000067c0b000 	C:\Program Files\Java\jdk1.8.0_121\jre\bin\server\jvm.dll
+0x00007ffb12c80000 - 0x00007ffb12c88000 	C:\WINDOWS\System32\PSAPI.DLL
+0x00007ffb0edb0000 - 0x00007ffb0edba000 	C:\WINDOWS\SYSTEM32\VERSION.dll
+0x00007ffb0c5a0000 - 0x00007ffb0c5c3000 	C:\WINDOWS\SYSTEM32\WINMM.dll
+0x00007ffb0c570000 - 0x00007ffb0c59a000 	C:\WINDOWS\SYSTEM32\WINMMBASE.dll
+0x00007ffaff650000 - 0x00007ffaff659000 	C:\WINDOWS\SYSTEM32\WSOCK32.dll
+0x00007ffb12570000 - 0x00007ffb125dc000 	C:\WINDOWS\System32\ws2_32.DLL
+0x0000000068850000 - 0x000000006885f000 	C:\Program Files\Java\jdk1.8.0_121\jre\bin\verify.dll
+0x0000000068820000 - 0x0000000068849000 	C:\Program Files\Java\jdk1.8.0_121\jre\bin\java.dll
+0x0000000068800000 - 0x0000000068816000 	C:\Program Files\Java\jdk1.8.0_121\jre\bin\zip.dll
+
+VM Arguments:
+java_command: com.capgemini.spring.test.Main
+java_class_path (initial): src;bin;libs/aspectjweaver-1.6.2.jar;libs/com.mysql.jdbc_5.1.5.jar;libs/commons-logging-1.2.jar;libs/spring-aop-4.3.9.RELEASE-javadoc.jar;libs/spring-aop-4.3.9.RELEASE-sources.jar;libs/spring-aop-4.3.9.RELEASE.jar;libs/spring-aspects-4.3.9.RELEASE-javadoc.jar;libs/spring-aspects-4.3.9.RELEASE-sources.jar;libs/spring-aspects-4.3.9.RELEASE.jar;libs/spring-beans-4.3.9.RELEASE-javadoc.jar;libs/spring-beans-4.3.9.RELEASE-sources.jar;libs/spring-beans-4.3.9.RELEASE.jar;libs/spring-context-4.3.9.RELEASE-javadoc.jar;libs/spring-context-4.3.9.RELEASE-sources.jar;libs/spring-context-4.3.9.RELEASE.jar;libs/spring-context-support-4.3.9.RELEASE-javadoc.jar;libs/spring-context-support-4.3.9.RELEASE-sources.jar;libs/spring-context-support-4.3.9.RELEASE.jar;libs/spring-core-4.3.9.RELEASE-javadoc.jar;libs/spring-core-4.3.9.RELEASE-sources.jar;libs/spring-core-4.3.9.RELEASE.jar;libs/spring-expression-4.3.9.RELEASE-javadoc.jar;libs/spring-expression-4.3.9.RELEASE-sources.jar;libs/spring-expression-4.3.9.RELEASE.jar;libs/spring-instrument-4.3.9.RELEASE-javadoc.jar;libs/spring-instrument-4.3.9.RELEASE-sources.jar;libs/spring-instrument-4.3.9.RELEASE.jar;libs/spring-instrument-tomcat-4.3.9.RELEASE-javadoc.jar;libs/spring-instrument-tomcat-4.3.9.RELEASE-sources.jar;libs/spring-instrument-tomcat-4.3.9.RELEASE.jar;libs/spring-jdbc-4.3.9.RELEASE-javadoc.jar;libs/spring-jdbc-4.3.9.RELEASE-sources.jar;libs/spring-jdbc-4.3.9.RELEASE.jar;libs/spring-jms-4.3.9.RELEASE-javadoc.jar;libs/spring-jms-4.3.9.RELEASE-sources.jar;libs/spring-jms-4.3.9.RELEASE.jar;libs/spring-messaging-4.3.9.RELEASE-javadoc.jar;libs/spring-messaging-4.3.9.RELEASE-sources.jar;libs/spring-messaging-4.3.9.RELEASE.jar;libs/spring-orm-4.3.9.RELEASE-javadoc.jar;libs/spring-orm-4.3.9.RELEASE-sources.jar;libs/spring-orm-4.3.9.RELEASE.jar;libs/spring-oxm-4.3.9.RELEASE-javadoc.jar;libs/spring-oxm-4.3.9.RELEASE-sources.jar;libs/spring-oxm-4.3.9.RELEASE.jar;libs/spring-test-4.3.9.RELEASE-javadoc.jar;libs/s
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+PATH=C:\Program Files\Java\jdk1.8.0_121\bin
+USERNAME=skumbhar
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 15 Model 6 Stepping 1, GenuineIntel
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows 10.0 , 64 bit Build 17134 (10.0.17134.1)
+
+CPU:total 4 (2 cores per cpu, 1 threads per core) family 15 model 6 stepping 1, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, avx2, aes, clmul, erms, rtm, 3dnowpref, lzcnt, tsc, bmi1, bmi2, adx
+
+Memory: 4k page, physical 8388056k(344408k free), swap 18697820k(5280k free)
+
+vm_info: Java HotSpot(TM) 64-Bit Server VM (25.121-b13) for windows-amd64 JRE (1.8.0_121-b13), built on Dec 12 2016 18:21:36 by "java_re" with MS VC++ 10.0 (VS2010)
+
+time: Mon Apr 08 16:32:37 2019
+elapsed time: 2 seconds (0d 0h 0m 2s)
+
