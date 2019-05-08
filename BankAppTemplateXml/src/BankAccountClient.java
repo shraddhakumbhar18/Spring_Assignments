@@ -29,6 +29,7 @@ public class BankAccountClient
 		long accountId;
 		long fromAccount;
 		long toAccount;
+		
 
 		ApplicationContext context = new ClassPathXmlApplicationContext("context.xml");
 		BankAccountService bankService= (BankAccountService)context.getBean("bankAccountServiceImpl");
@@ -66,11 +67,12 @@ public class BankAccountClient
 					}
 					break;
 
-				/*case 2:
+				case 2:
 					System.out.println("Enter Account Id");
 					accountId = Long.parseLong(reader.readLine());
 					System.out.println("Enter Amount");
 					amount = Double.parseDouble(reader.readLine());
+					
 					try 
 					{
 						double balance = bankService.withdraw(accountId, amount);
@@ -78,10 +80,12 @@ public class BankAccountClient
 					} 
 					catch (LowBalanceException e) 
 					{
+						System.out.println("Low Balance Exception");
 						// logger.error("Withdraw failed", e);
 					} 
 					catch (BankAccountNotFoundException e) 
 					{
+						System.out.println("Bank Account not found");
 						// logger.error("Account Not Found", e);
 					}
 					break;
@@ -91,18 +95,19 @@ public class BankAccountClient
 					accountId = Long.parseLong(reader.readLine());
 					System.out.println("Enter Amount");
 					amount = Double.parseDouble(reader.readLine());
-					double balance;
+					
 					try 
 					{
-						balance = bankService.deposit(accountId, amount);
+						double balance =  bankService.deposit(accountId, amount);
 						System.out.println("Transaction successful=" + balance);
 					} 
 					catch (BankAccountNotFoundException e2) 
 					{
+						System.out.println("Bank Account not found");
 						// logger.error("Account Not Found", e2);
 					}
 					break;
-
+					
 				case 4:
 					System.out.println("Enter account Id");
 					accountId = Long.parseLong(reader.readLine());
@@ -114,10 +119,11 @@ public class BankAccountClient
 					} 	
 					catch (BankAccountNotFoundException e1) 
 					{
+						System.out.println("Bank Account not found");
 						// logger.error("Account Not Found", e1);
 					}
 					break;
-
+					
 				case 5:
 					System.out.println("Enter Account Id");
 					fromAccount = Long.parseLong(reader.readLine());
@@ -163,6 +169,7 @@ public class BankAccountClient
 					} 
 					catch (BankAccountNotFoundException e) 
 					{
+							System.out.println("Bank Account Not Found Exception");
 							// logger.error("Account Not Found",e);
 					}
 					break;
@@ -185,6 +192,7 @@ public class BankAccountClient
 					} 
 					catch (BankAccountNotFoundException e) 
 					{
+						System.out.println("Bank Account Not Found Exception");
 						// logger.error("Account Not Found",e);
 					}
 					break;
@@ -192,20 +200,30 @@ public class BankAccountClient
 				case 9:
 					System.out.println("Enter Account Id to update Account Details");
 					accountId = Long.parseLong(reader.readLine());
-					System.out.println("Enter Account Holder Name");
-					accountHolderName = reader.readLine();
-					System.out.println("Enter Account Type");
-					accountType = reader.readLine();
-					boolean updateResult = bankService.updateAccount(accountId, accountHolderName, accountType);
-					if (updateResult == true) 
+					
+					try
 					{
-						System.out.println("Details successfully Update");
-					} 
-					else 
-					{
-						System.out.println("updation failed");
+						System.out.println("Enter Account Holder Name");
+						accountHolderName = reader.readLine();
+						System.out.println("Enter Account Type");
+						accountType = reader.readLine();
+						boolean updateResult = bankService.updateAccount(accountId, accountHolderName, accountType);
+						if (updateResult == true) 
+						{
+							System.out.println("Details successfully Update");
+						} 
+						else 
+						{
+							System.out.println("updation failed");
+						}
 					}
-				*/
+					catch (BankAccountNotFoundException e) 
+					{
+						// logger.error("Account Not Found",e);
+						System.out.println("Account Not Found");
+					}
+					break;
+				
 				case 10:
 					System.out.println("Thanks for banking with us");
 					System.exit(0);

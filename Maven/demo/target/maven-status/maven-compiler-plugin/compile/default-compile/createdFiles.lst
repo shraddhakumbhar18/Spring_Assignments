@@ -1,0 +1,5 @@
+com\capgemini\spring\provider\HMMessageProvider.class
+com\capgemini\spring\render\MessageRenderer.class
+com\capgemini\spring\provider\MessageProvider.class
+com\capgemini\spring\provider\GMMessageProvider.class
+com\capgemini\spring\test\App.class
